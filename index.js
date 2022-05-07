@@ -26,6 +26,14 @@ async function run(){
     const services = await cursor.toArray();
     res.send(services);
    })
+  //  post
+    app.post('/service', async(req,res)=>{
+    const newService = req.body;
+    console.log(newService);
+    const result = await serviceCollection.insertOne(newService);
+    res.send(result);
+
+  })
     
   }
   finally{
